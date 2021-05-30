@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+	<style>
+		body{
+			background-color: DodgerBlue;
+		}
+
+		a,h3{
+			text-align: center;
+			color:white;
+		}
+		a{
+			font-size: 30px;
+			font-style: italic;
+			  padding-top: 50px;
+			  padding-right: 30px;
+			  padding-bottom: 50px;
+			  padding-left: 80px;
+		}
+		.no_pad
+		{
+			 padding-top: 0px;
+			  padding-right: 0px;
+			  padding-bottom: 0px;
+			  padding-left: 0px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	
+	{% for i in data %}
+            <a href="{{ i['link'] }}" ><h3>{{ i['title'] }}</h3></a>
+            <h3>{{ i['time'] }}  {{ i['points'] }}</h3>
+
+            <hr>
+    {% endfor %}
+
+	<h1>page number : {{ num }}</h1>
+	<a class="no_pad" href=" {{ url_for('news',page_no=num+1) }}" >NEXT_PAGE</a>
+	<br><br>
+	<a class="no_pad" href=" {{ url_for('logout_user') }} ">logout</a>
+
+	
+</body>
+</html>

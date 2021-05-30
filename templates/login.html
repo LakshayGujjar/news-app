@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>log in</title>
+	<style>
+		body
+		{
+			background-color:  DodgerBlue;
+			display: flex;
+			color:DodgerBlue;
+			font-size: 25px;
+			text-shadow: 5px 5px 10px pink;
+
+			background-image: url(" {{url_for('static', filename='109241-newspaper.jpg')}} ");
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: 100% 100%;
+		}
+		.flex-container {
+		  display: flex;
+		 
+		}
+
+		.div1
+		{	
+			height: 300px;
+			padding-top: 130px;
+			/*padding-right: 30px; */
+			padding-bottom: 240px;
+			padding-left: 100px;
+			flex: 50%;
+
+			/*setting image 
+			  background-image: url(" {{url_for('static', filename='109241-newspaper.jpg')}} ");
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: 100% 100%;
+			  */
+
+			color:  DodgerBlue;
+		}
+		.div2
+		{
+			padding-top: 160px;
+			text-align: center;
+			flex: 50%;
+		}
+
+		h3
+		{
+			font-style: italic;
+		}
+		a
+		{
+			color: #00ff00;
+		}
+
+		button {
+		  background-color: #555555; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 10px 10px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		}
+
+	</style>
+	
+
+</head>
+<body>
+
+	<!--<div class="flex-container">-->
+
+		<div class="div1">
+			<h1> NEWS APP</h1>
+			<h3> read daily news in short </h3>
+		</div>
+
+		<div class="div2">
+			<h1>login</h1>
+
+			<form method="POST">
+				<p>email id
+				<input type="email" name="user_email" />
+			    </p>
+			    <p>
+				password
+				<input type="password" name="user_password" />
+				</p>
+				
+				
+				<button type="submit">SUBMIT</button>
+			</form>
+			{% if (check[0]==0) and (check[1]==1) %}
+				<h2>entered email is incorrect</h2>
+			{% elif (check[0]==1) and (check[1]==0) %}
+				<h2> entered password is incorrect</h2>
+			{% endif %}
+
+			<a href=" {{ url_for('signup_user') }} ">new user?</a>
+
+		</div>
+	<!--</div> -->
+
+	
+
+</body>
+</html>

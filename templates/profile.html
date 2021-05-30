@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my profile</title>
+	<style>
+		body
+		{
+			color:white;
+			font-size: 25px;
+			background-color: DodgerBlue;
+		}
+		.main
+		{
+			display: flex;
+		}
+
+		.div1
+		{
+		  height: 300px;
+          width: 500px;
+          background-color: white;
+          text-align: right;
+          color :DodgerBlue;
+          
+		  background-image: url("  {% if data[0][3]=='male' %}{{url_for('static', filename='male.png')}} {% elif data[0][3]=='female' %}{{url_for('static', filename='female.png')}}  {% endif %} ");
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		 
+		}
+		.div2
+		{
+			background-color: white
+			width:100%;
+			text-align: center;
+		}
+
+
+	</style>
+	
+</head>
+<body>
+	
+	<div class="main">
+		<div class="div1">
+			
+
+		</div>
+
+		<div class="div2">
+			<p>email : {{ data[0][0] }}</p>
+			<p>name : {{ data[0][1] }}</p>
+			<p>gender : {{ data[0][3] }}</p>
+			<p>status : {{ data[0][4] }}</p>
+			
+			
+		</div>
+	</div>
+	<a href=" {{ url_for('news',page_no=1) }}" >read news</a>
+
+	<br>
+	<a href=" {{ url_for('logout_user') }} ">logout</a>
+
+	
+</body>
+</html> 
+

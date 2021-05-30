@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sign up</title>
+	<style>
+		/* make complete design same as login page  */
+		body
+		{
+			background-color:  DodgerBlue;
+			display: flex;
+			color:DodgerBlue;
+			font-size: 25px;
+			text-shadow: 5px 5px 10px pink;
+
+			background-image: url(" {{url_for('static', filename='109241-newspaper.jpg')}} ");
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: 100% 100%;
+		}
+
+		.flex-container {
+		  display: flex;
+		 
+		}
+
+		.div1
+		{	
+			height: 300px;
+			padding-top: 130px;
+			/*padding-right: 30px; */
+			padding-bottom: 240px;
+			padding-left: 100px;
+			flex: 50%;
+
+			/*setting image 
+			  background-image: url(" {{url_for('static', filename='109241-newspaper.jpg')}} ");
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: 100% 100%;
+			  */
+
+			color:  DodgerBlue;
+		}
+		.div2
+		{
+			padding-top: 160px;
+			text-align: center;
+			flex: 50%;
+		}
+
+		h3
+		{
+			font-style: italic;
+		}
+		a
+		{
+			color: #00ff00;
+		}
+
+		button {
+		  background-color: #555555; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 10px 10px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		}
+	</style>
+
+</head>
+<body>
+	<!--email_id,name,password,gender,
+		WILL be updated from profile page status(not necessary),img (not necessary)-->
+
+	<div class="div1">
+		<h1> NEWS APP</h1>
+		<h3> read daily news in short </h3>
+	</div>
+
+	<div  class="div2">
+		<h1>this is sign up page</h1>
+		<form method="POST">
+			<p>enter name :
+			<input type="text" name="user_name"/>
+			</p>
+			<p>enter password : 
+			<input type="password" name="user_password" />
+			</p>
+			<p>enter Email :
+				<input type="text" name="user_email" />
+			</p>
+			<p>Gender : <br>
+				<input type="radio" id="male" name="gender" value="male">
+					<label for="male">Male</label><br>
+				<input type="radio" id="female" name="gender" value="female">
+					<label for="female">Female</label><br>
+			</p>
+			<button type="submit">SUBMIT</button>
+		
+
+		</form>
+		{% if temp != 0 : %}
+			<h3>email already taken try login instead</h3>
+		{% endif %}
+
+		<p>
+			already a user ? <a href=" {{ url_for('login_user') }} ">login</a>
+		</p>
+	</div>
+
+
+</body>
+</html>
